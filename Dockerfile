@@ -13,12 +13,12 @@ RUN uv sync --frozen --no-install-project
 # Copy source code
 COPY src/ ./src
 COPY .github/core/ ./.github/core/
+COPY start.py ./
 
 # Final sync to install the project
 RUN uv sync --frozen
 
 ENV PATH="/app/.venv/bin:$PATH"
 
-# For cloud deployment
-# CMD ["alpaca-mcp-server", "serve", "--transport", "streamable-http", "--host", "0.0.0.0", "--port", "8000"]
+# For cloud deployment with proxy support
 CMD ["python", "start.py"]
