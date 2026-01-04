@@ -20,4 +20,5 @@ RUN uv sync --frozen
 ENV PATH="/app/.venv/bin:$PATH"
 
 # For cloud deployment
-CMD ["alpaca-mcp-server", "serve", "--transport", "streamable-http", "--host", "0.0.0.0", "--port", "8000"]
+# CMD ["alpaca-mcp-server", "serve", "--transport", "streamable-http", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "start.py"]
